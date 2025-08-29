@@ -32,7 +32,7 @@ export default function NavBar({ darkMode, switchDarkMode }: Props) {
           backgroundColor: darkMode ? "#1a1a1a" : "#ffffff",
           color: darkMode ? "#ffffff" : "#2E8B57",
           borderBottom: `2px solid ${darkMode ? "#2E8B57" : "#2E8B57"}`,
-          background: darkMode 
+          background: darkMode
             ? "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)"
             : "linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)",
         }}
@@ -44,14 +44,16 @@ export default function NavBar({ darkMode, switchDarkMode }: Props) {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ 
-              mr: "min(0.5vw, 0.6rem)", 
-              padding: 1.5, 
+            sx={{
+              mr: "min(0.5vw, 0.6rem)",
+              padding: 1.5,
               my: 1,
               borderRadius: 2,
               "&:hover": {
-                backgroundColor: darkMode ? "rgba(46, 139, 87, 0.1)" : "rgba(46, 139, 87, 0.1)",
-              }
+                backgroundColor: darkMode
+                  ? "rgba(46, 139, 87, 0.1)"
+                  : "rgba(46, 139, 87, 0.1)",
+              },
             }}
             onClick={() => setDrawerOpen((val) => !val)}
           >
@@ -73,7 +75,9 @@ export default function NavBar({ darkMode, switchDarkMode }: Props) {
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                textShadow: darkMode ? "0 0 20px rgba(76, 175, 80, 0.3)" : "none",
+                textShadow: darkMode
+                  ? "0 0 20px rgba(76, 175, 80, 0.3)"
+                  : "none",
                 letterSpacing: "0.5px",
               }}
             >
@@ -90,8 +94,10 @@ export default function NavBar({ darkMode, switchDarkMode }: Props) {
             sx={{
               borderRadius: 2,
               "&:hover": {
-                backgroundColor: darkMode ? "rgba(46, 139, 87, 0.1)" : "rgba(46, 139, 87, 0.1)",
-              }
+                backgroundColor: darkMode
+                  ? "rgba(46, 139, 87, 0.1)"
+                  : "rgba(46, 139, 87, 0.1)",
+              },
             }}
           >
             <Icon icon={darkMode ? "mdi:weather-sunny" : "mdi:weather-night"} />

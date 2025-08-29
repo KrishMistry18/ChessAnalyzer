@@ -5,10 +5,10 @@ import { Stockfish16_1 } from "./stockfish16_1";
 import { Stockfish17 } from "./stockfish17";
 
 export const isWasmSupported = () => {
-  if (typeof WebAssembly === 'undefined') {
+  if (typeof WebAssembly === "undefined") {
     return false; // Default fallback for server-side rendering
   }
-  
+
   return (
     typeof WebAssembly === "object" &&
     WebAssembly.validate(
@@ -18,10 +18,10 @@ export const isWasmSupported = () => {
 };
 
 export const isMultiThreadSupported = () => {
-  if (typeof SharedArrayBuffer === 'undefined') {
+  if (typeof SharedArrayBuffer === "undefined") {
     return false; // Default fallback for server-side rendering
   }
-  
+
   try {
     return SharedArrayBuffer !== undefined && !isIosDevice();
   } catch {
@@ -30,14 +30,14 @@ export const isMultiThreadSupported = () => {
 };
 
 export const isIosDevice = () => {
-  if (typeof navigator === 'undefined') {
+  if (typeof navigator === "undefined") {
     return false; // Default fallback for server-side rendering
   }
   return /iPhone|iPad|iPod/i.test(navigator.userAgent);
 };
 
 export const isMobileDevice = () => {
-  if (typeof navigator === 'undefined') {
+  if (typeof navigator === "undefined") {
     return false; // Default fallback for server-side rendering
   }
   return isIosDevice() || /Android|Opera Mini/i.test(navigator.userAgent);

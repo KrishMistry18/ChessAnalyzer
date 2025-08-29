@@ -7,11 +7,16 @@ interface ChessAnalyzerLogoProps {
   size?: number;
 }
 
-export default function ChessAnalyzerLogo({ darkMode, size = 32 }: ChessAnalyzerLogoProps): ReactElement {
+export default function ChessAnalyzerLogo({
+  darkMode,
+  size = 32,
+}: ChessAnalyzerLogoProps): ReactElement {
   const color = darkMode ? "#FFFFFF" : "#2E8B57";
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <Box
+      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+    >
       <Icon icon="mdi:chess-knight" width={size} height={size} color={color} />
     </Box>
   );

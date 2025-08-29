@@ -50,8 +50,8 @@ export default function Layout({ children }: PropsWithChildren) {
           MuiAppBar: {
             styleOverrides: {
               root: {
-                boxShadow: isDarkMode 
-                  ? "0 2px 20px rgba(0, 0, 0, 0.3)" 
+                boxShadow: isDarkMode
+                  ? "0 2px 20px rgba(0, 0, 0, 0.3)"
                   : "0 2px 20px rgba(0, 0, 0, 0.1)",
               },
             },
@@ -59,8 +59,8 @@ export default function Layout({ children }: PropsWithChildren) {
           MuiPaper: {
             styleOverrides: {
               root: {
-                boxShadow: isDarkMode 
-                  ? "0 4px 20px rgba(0, 0, 0, 0.3)" 
+                boxShadow: isDarkMode
+                  ? "0 4px 20px rgba(0, 0, 0, 0.3)"
                   : "0 4px 20px rgba(0, 0, 0, 0.1)",
               },
             },
@@ -79,11 +79,13 @@ export default function Layout({ children }: PropsWithChildren) {
         darkMode={isDarkMode}
         switchDarkMode={() => setDarkMode((val) => !val)}
       />
-      <main style={{ 
-        margin: "2vh 2vw", 
-        minHeight: "calc(100vh - 80px)",
-        background: `linear-gradient(135deg, ${isDarkMode ? '#1a1a1a' : '#f8f9fa'} 0%, ${isDarkMode ? '#2d2d2d' : '#ffffff'} 100%)`
-      }}>
+      <main
+        style={{
+          margin: "2vh 2vw",
+          minHeight: "calc(100vh - 80px)",
+          background: `linear-gradient(135deg, ${isDarkMode ? "#1a1a1a" : "#f8f9fa"} 0%, ${isDarkMode ? "#2d2d2d" : "#ffffff"} 100%)`,
+        }}
+      >
         {children}
       </main>
     </ThemeProvider>

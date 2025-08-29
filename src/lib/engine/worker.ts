@@ -3,8 +3,8 @@ import { isIosDevice, isMobileDevice } from "./shared";
 
 export const getEngineWorker = (enginePath: string): EngineWorker => {
   // Check if we're in a browser environment
-  if (typeof window === 'undefined') {
-    throw new Error('Worker can only be created in browser environment');
+  if (typeof window === "undefined") {
+    throw new Error("Worker can only be created in browser environment");
   }
 
   console.log(`Creating worker from ${enginePath}`);
@@ -51,7 +51,7 @@ export const sendCommandsToWorker = (
 
 export const getRecommendedWorkersNb = (): number => {
   // Check if we're in a browser environment
-  if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+  if (typeof window === "undefined" || typeof navigator === "undefined") {
     // Default fallback for server-side rendering
     return 4;
   }

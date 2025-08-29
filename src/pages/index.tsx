@@ -55,9 +55,10 @@ export default function GameAnalysis() {
           borderWidth: 2,
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)",
           backdropFilter: "blur(10px)",
-          background: (theme) => theme.palette.mode === 'dark' 
-            ? "rgba(30, 30, 30, 0.9)"
-            : "rgba(255, 255, 255, 0.9)",
+          background: (theme) =>
+            theme.palette.mode === "dark"
+              ? "rgba(30, 30, 30, 0.9)"
+              : "rgba(255, 255, 255, 0.9)",
         }}
         padding={3}
         style={{
