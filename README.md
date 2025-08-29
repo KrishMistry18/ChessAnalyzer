@@ -1,8 +1,5 @@
 # ♟️ ChessAnalyzer – Web Chess Analysis Suite
 A modern, browser-based chess analysis platform powered by Stockfish with a slick Next.js UI. Load games, analyze positions, classify moves, and review insights – all locally and fast.
-
-> Personal project: This repository is maintained solely by its author. External contributions, issues, and pull requests are not accepted.
-
 ---
 
 ## ✨ Key Features
