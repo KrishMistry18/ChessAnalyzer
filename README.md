@@ -1,4 +1,4 @@
-<img width="437" height="226" alt="image" src="https://github.com/user-attachments/assets/6e92d716-a28b-498b-92c0-fb1c5b5c0850" /># ♟️ ChessAnalyzer – Web Chess Analysis Suite
+# ♟️ ChessAnalyzer – Web Chess Analysis Suite
 A modern, browser-based chess analysis platform powered by Stockfish with a slick Next.js UI. Load games, analyze positions, classify moves, and review insights – all locally and fast.
 ---
 
