@@ -1,8 +1,15 @@
 # ♟️ ChessAnalyzer – Web Chess Analysis Suite
+
 A modern, browser-based chess analysis platform powered by Stockfish with a slick Next.js UI. Load games, analyze positions, classify moves, and review insights – all locally and fast.
+
+🔗 **Live Demo: [chess-analyzer-qf7v.vercel.app](https://chess-analyzer-qf7v.vercel.app/)**
+
+> Personal project: This repository is maintained solely by its author. External contributions, issues, and pull requests are not accepted.
+
 ---
 
 ## ✨ Key Features
+
 ### 🔐 Experience & UX
 - Responsive Layout – Mobile-first, desktop-optimized
 - Dark/Light Mode – One-click toggle
@@ -10,7 +17,7 @@ A modern, browser-based chess analysis platform powered by Stockfish with a slic
 
 ### 🔎 Smart Analysis & Review
 - Live Engine Evaluation – Multiple Stockfish builds (17 / 16.1 / 16 / 11, lite variants included)
-- Move Classifications – Brilliant, Excellent, Inaccuracy, Mistake, Blunder
+- Move Classifications – Brilliant, Excellent, Good, Inaccuracy, Mistake, Blunder
 - Evaluation Graph – Trend of advantage over time
 - Opening Detection – Auto-detects openings
 - Best-Move Arrows – Visual guidance on board
@@ -28,17 +35,20 @@ A modern, browser-based chess analysis platform powered by Stockfish with a slic
 ---
 
 ## 🛠 Tech Stack
-### Frontend
-- Next.js 15 • React 18 • TypeScript
-- Material UI (MUI)
-- Jotai (state) • TanStack Query (data)
 
-### Engine
-- Stockfish (WASM, threads when supported)
+| Layer | Technologies |
+|---|---|
+| Framework | Next.js 15 • React 18 • TypeScript |
+| UI | Material UI (MUI) • Recharts |
+| State | Jotai • TanStack Query |
+| Engine | Stockfish 17/16.1/16/11 (WASM) |
+| Storage | IndexedDB (idb) |
+| Monitoring | Sentry (optional) • Firebase Analytics (optional) |
 
 ---
 
 ## 🚀 Quick Start
+
 Requirements: Node.js 20+
 
 ```bash
@@ -48,66 +58,100 @@ npm install
 # Start development (http://localhost:3000)
 npm run dev
 
-# Lint & Typecheck
+# Lint & typecheck
 npm run lint
 
-# Production build & start
+# Production build
 npm run build
 npm run start
 ```
 
 ---
 
-## 📚 Project Structure
+## ⚙️ Environment Variables
+
+All environment variables are optional — the app is fully functional without them.
+
+Copy `.env.example` to `.env.local` and fill in your values:
+
+```bash
+cp .env.example .env.local
 ```
-public/            # icons, engines (WASM), sounds, piece sets
+
+| Variable | Service | Required |
+|---|---|---|
+| `NEXT_PUBLIC_FIREBASE_*` | Firebase Analytics | Optional |
+| `NEXT_PUBLIC_SENTRY_DSN` | Sentry error tracking | Optional |
+| `SENTRY_ORG` + `SENTRY_AUTH_TOKEN` | Sentry source maps | Optional |
+
+---
+
+## 📚 Project Structure
+
+```
+public/
+  engines/         # Stockfish WASM builds (17, 16.1, 16, 11)
+  piece/           # 40+ chess piece themes
+  icons/           # move classification icons
 src/
-  components/      # UI components
+  components/      # reusable UI components
   sections/        # feature sections (analysis, play, layout)
-  pages/           # Next pages (_app, _document, index, play, database)
-  lib/             # chess engine helpers, services, utils
-  hooks/           # custom hooks
-  types/           # TypeScript types
+  pages/           # Next.js pages (_app, index, play, database)
+  lib/             # engine helpers, services, utilities
+  hooks/           # custom React hooks
+  types/           # TypeScript type definitions
   styles/          # global styles
 ```
 
 ---
 
-## 🧪 Notes & Performance
-- WASM Threads – Enabled on supported browsers; gracefully degrades
-- Memory/Workers – Engine worker count adapts to device capability
-- Client-Only Engine – No backend dependency for analysis
+## 🧪 Performance Notes
+
+- WASM Threads – Enabled on supported browsers, gracefully degrades to single-threaded
+- Worker Count – Engine worker count adapts to device CPU cores and memory
+- Client-Only – No backend required; all analysis runs in the browser
+- Engine Caching – WASM engine files cached immutably for fast repeat loads
 
 ---
 
 ## 🔒 Security & Privacy
-- All analysis runs locally in the browser
-- No account required by default
 
----
-
-## 🧭 Roadmap Ideas (optional)
-- Cloud sync for saved games
-- Sharable analysis reports
-- Puzzle generation from blunders
+- All chess analysis runs locally in the browser
+- No account or login required
+- No game data is sent to any server
 
 ---
 
 ## 🐙 Deployment
-Use any Node host (Vercel/Netlify/Render/AWS/etc.).
-- Build: `npm run build`
-- Start: `npm run start`
+
+Deployed on Vercel. Any static host works (Netlify, Render, AWS S3+CloudFront, etc.).
+
+```bash
+npm run build   # outputs static export to /out
+```
+
+The `vercel.json` in this repo sets the required CORS headers for Stockfish WASM threads to work in production.
+
+---
+
+## 🧭 Roadmap
+
+- Cloud sync for saved games
+- Sharable analysis links
+- Puzzle generation from blunders
 
 ---
 
 ## 📝 License
-GPL-3.0-only. See `LICENCE`.
+
+GPL-3.0-only. See [`LICENCE`](./LICENCE).
 
 ---
 
 ## 👤 Author
-Built with ❤️ by Krish Mistry
-- Email: mistrykrish2005@gmail.com
-- GitHub: https://github.com/KrishMistry18
-- LinkedIn: https://www.linkedin.com/in/krishmistry18
-  
+
+Built with ❤️ by **Krish Mistry**
+
+- 📧 [mistrykrish2005@gmail.com](mailto:mistrykrish2005@gmail.com)
+- 🐙 [github.com/KrishMistry18](https://github.com/KrishMistry18)
+- 💼 [linkedin.com/in/krish-mistry-0290522b7](https://www.linkedin.com/in/krish-mistry-0290522b7/)
