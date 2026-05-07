@@ -76,19 +76,28 @@ const nextConfig = (phase: string): NextConfig => ({
         ],
 });
 
+const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
+const sentryOrg = process.env.SENTRY_ORG;
+const sentryEnabled = !!sentryAuthToken && !!sentryOrg;
+
 export default withSentryConfig(nextConfig, {
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-  org: process.env.SENTRY_ORG,
+  org: sentryOrg,
   project: "javascript-nextjs",
-  authToken: process.env.SENTRY_AUTH_TOKEN,
-  widenClientFileUpload: true,
+  authToken: sentryAuthToken,
+  widenClientFileUpload: sentryEnabled,
   reactComponentAnnotation: {
     enabled: true,
   },
   hideSourceMaps: true,
   disableLogger: true,
   sourcemaps: {
+    disable: !sentryEnabled,
     deleteSourcemapsAfterUpload: true,
+  },
+  release: {
+    create: sentryEnabled,
+    finalize: sentryEnabled,
   },
   telemetry: false,
 });
