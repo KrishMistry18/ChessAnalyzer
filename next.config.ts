@@ -80,10 +80,15 @@ export default withSentryConfig(nextConfig, {
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
   org: process.env.SENTRY_ORG,
   project: "javascript-nextjs",
+  authToken: process.env.SENTRY_AUTH_TOKEN,
   widenClientFileUpload: true,
   reactComponentAnnotation: {
     enabled: true,
   },
   hideSourceMaps: true,
   disableLogger: true,
+  sourcemaps: {
+    deleteSourcemapsAfterUpload: true,
+  },
+  telemetry: false,
 });
