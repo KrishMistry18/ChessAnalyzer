@@ -1,4 +1,3 @@
-import { withSentryConfig } from "@sentry/nextjs";
 import { NextConfig } from "next";
 import { PHASE_PRODUCTION_BUILD } from "next/constants";
 
@@ -76,28 +75,4 @@ const nextConfig = (phase: string): NextConfig => ({
         ],
 });
 
-const sentryAuthToken = process.env.SENTRY_AUTH_TOKEN;
-const sentryOrg = process.env.SENTRY_ORG;
-const sentryEnabled = !!sentryAuthToken && !!sentryOrg;
-
-export default withSentryConfig(nextConfig, {
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-  org: sentryOrg,
-  project: "javascript-nextjs",
-  authToken: sentryAuthToken,
-  widenClientFileUpload: sentryEnabled,
-  reactComponentAnnotation: {
-    enabled: true,
-  },
-  hideSourceMaps: true,
-  disableLogger: true,
-  sourcemaps: {
-    disable: !sentryEnabled,
-    deleteSourcemapsAfterUpload: true,
-  },
-  release: {
-    create: sentryEnabled,
-    finalize: sentryEnabled,
-  },
-  telemetry: false,
-});
+export default nextConfig;
