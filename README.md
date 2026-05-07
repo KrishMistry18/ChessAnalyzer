@@ -4,8 +4,6 @@ A modern, browser-based chess analysis platform powered by Stockfish with a slic
 
 🔗 **Live Demo: [chess-analyzer-qf7v.vercel.app](https://chess-analyzer-qf7v.vercel.app/)**
 
-> Personal project: This repository is maintained solely by its author. External contributions, issues, and pull requests are not accepted.
-
 ---
 
 ## ✨ Key Features
