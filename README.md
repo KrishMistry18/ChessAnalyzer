@@ -1,76 +1,82 @@
-# ♟️ ChessAnalyzer – Web Chess Analysis Suite
+<div align="center">
 
-A modern, browser-based chess analysis platform powered by Stockfish with a slick Next.js UI. Load games, analyze positions, classify moves, and review insights – all locally and fast.
+# ♟️ ChessAnalyzer
 
-🔗 **Live Demo: [chess-analyzer-qf7v.vercel.app](https://chess-analyzer-qf7v.vercel.app/)**
+### Browser-Based Chess Analysis Suite
 
----
+[![Live Demo](https://img.shields.io/badge/🔗%20Live%20Demo-chess--analyzer.vercel.app-blue?style=for-the-badge)](https://chess-analyzer-qf7v.vercel.app/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![License](https://img.shields.io/badge/License-GPL--3.0-yellow?style=for-the-badge)](LICENCE)
 
-## ✨ Key Features
+*Analyse positions, classify moves, and review full games — all powered by Stockfish, all running locally in your browser.*
 
-### 🔐 Experience & UX
-- Responsive Layout – Mobile-first, desktop-optimized
-- Dark/Light Mode – One-click toggle
-- PWA-Ready Base – Smooth UX and quick loads
-
-### 🔎 Smart Analysis & Review
-- Live Engine Evaluation – Multiple Stockfish builds (17 / 16.1 / 16 / 11, lite variants included)
-- Move Classifications – Brilliant, Excellent, Good, Inaccuracy, Mistake, Blunder
-- Evaluation Graph – Trend of advantage over time
-- Opening Detection – Auto-detects openings
-- Best-Move Arrows – Visual guidance on board
-- Local Storage – Save/reload games in the browser (IndexedDB)
-
-### 🧩 Play & Tools
-- Play vs Stockfish – Adjustable strength
-- Board Utilities – Flip board, move list, SAN/pretty SAN display
-- Multiple Piece Sets – 40+ chess piece themes bundled
-
-### 📊 Insights
-- Game Summary – Quick overview of inaccuracies/mistakes/blunders
-- Multi-PV Support – Explore multiple engine lines
+</div>
 
 ---
 
-## 🛠 Tech Stack
+## Features
+
+### Analysis & Review
+- **Live Engine Evaluation** — Multiple Stockfish builds (17 / 16.1 / 16 / 11, lite variants included)
+- **Move Classifications** — Brilliant ✨, Excellent, Good, Inaccuracy, Mistake, Blunder
+- **Evaluation Graph** — Visual trend of advantage over the full game
+- **Opening Detection** — Auto-detects openings from your game
+- **Best-Move Arrows** — Visual guidance overlaid directly on the board
+- **Multi-PV Support** — Explore multiple engine lines side by side
+
+### Play & Tools
+- **Play vs Stockfish** — Adjustable engine strength
+- **Board Utilities** — Flip board, move list, SAN / pretty-SAN display
+- **40+ Piece Sets** — Extensive chess piece theme library bundled
+
+### UX
+- **Responsive Layout** — Mobile-first, desktop-optimised
+- **Dark / Light Mode** — One-click toggle
+- **Local Storage** — Save and reload games in the browser (IndexedDB)
+- **Privacy-First** — No account, no login, no game data sent to any server
+
+---
+
+## Tech Stack
 
 | Layer | Technologies |
 |---|---|
-| Framework | Next.js 15 • React 18 • TypeScript |
-| UI | Material UI (MUI) • Recharts |
-| State | Jotai • TanStack Query |
+| Framework | Next.js 15 · React 18 · TypeScript |
+| UI | Material UI (MUI) · Recharts |
+| State | Jotai · TanStack Query |
 | Engine | Stockfish 17/16.1/16/11 (WASM) |
 | Storage | IndexedDB (idb) |
-| Monitoring | Sentry (optional) • Firebase Analytics (optional) |
+| Monitoring | Sentry (optional) · Firebase Analytics (optional) |
+| Deployment | Vercel |
 
 ---
 
-## 🚀 Quick Start
+## Getting Started
 
-Requirements: Node.js 20+
+### Prerequisites
+
+- Node.js 20+
 
 ```bash
 # Install dependencies
 npm install
 
-# Start development (http://localhost:3000)
+# Start development server (http://localhost:3000)
 npm run dev
 
-# Lint & typecheck
+# Lint and typecheck
 npm run lint
 
 # Production build
-npm run build
-npm run start
+npm run build && npm run start
 ```
 
 ---
 
-## ⚙️ Environment Variables
+## Environment Variables
 
-All environment variables are optional — the app is fully functional without them.
-
-Copy `.env.example` to `.env.local` and fill in your values:
+All variables are optional — the app is fully functional without them.
 
 ```bash
 cp .env.example .env.local
@@ -84,72 +90,62 @@ cp .env.example .env.local
 
 ---
 
-## 📚 Project Structure
+## Project Structure
 
 ```
 public/
   engines/         # Stockfish WASM builds (17, 16.1, 16, 11)
   piece/           # 40+ chess piece themes
-  icons/           # move classification icons
+  icons/           # Move classification icons
 src/
-  components/      # reusable UI components
-  sections/        # feature sections (analysis, play, layout)
+  components/      # Reusable UI components
+  sections/        # Feature sections (analysis, play, layout)
   pages/           # Next.js pages (_app, index, play, database)
-  lib/             # engine helpers, services, utilities
-  hooks/           # custom React hooks
+  lib/             # Engine helpers, services, utilities
+  hooks/           # Custom React hooks
   types/           # TypeScript type definitions
-  styles/          # global styles
+  styles/          # Global styles
 ```
 
 ---
 
-## 🧪 Performance Notes
+## Performance Notes
 
-- WASM Threads – Enabled on supported browsers, gracefully degrades to single-threaded
-- Worker Count – Engine worker count adapts to device CPU cores and memory
-- Client-Only – No backend required; all analysis runs in the browser
-- Engine Caching – WASM engine files cached immutably for fast repeat loads
-
----
-
-## 🔒 Security & Privacy
-
-- All chess analysis runs locally in the browser
-- No account or login required
-- No game data is sent to any server
+- **WASM Threads** — Enabled on supported browsers, gracefully degrades to single-threaded
+- **Worker Count** — Adapts to device CPU cores and available memory
+- **Client-Only** — No backend required; all analysis runs in the browser
+- **Engine Caching** — WASM files cached immutably for fast repeat loads
 
 ---
 
-## 🐙 Deployment
+## Deployment
 
-Deployed on Vercel. Any static host works (Netlify, Render, AWS S3+CloudFront, etc.).
+Deployed on Vercel. Any static host works (Netlify, Render, AWS S3+CloudFront).
 
 ```bash
 npm run build   # outputs static export to /out
 ```
 
-The `vercel.json` in this repo sets the required CORS headers for Stockfish WASM threads to work in production.
+The `vercel.json` sets required CORS headers for Stockfish WASM threads in production.
 
 ---
 
-## 🧭 Roadmap
+## Roadmap
 
 - Cloud sync for saved games
-- Sharable analysis links
+- Shareable analysis links
 - Puzzle generation from blunders
 
 ---
 
-## 📝 License
+## License
 
-GPL-3.0-only. See [`LICENCE`](./LICENCE).
+GPL-3.0-only — see `LICENCE` for details.
 
 ---
 
-## 👤 Author
+<div align="center">
 
-Built with ❤️ by **Krish Mistry**
+*Built with ❤️ by [Krish Mistry](https://github.com/KrishMistry18)*
 
-- 📧 [mistrykrish2005@gmail.com](mailto:mistrykrish2005@gmail.com)
-- 🐙 [github.com/KrishMistry18](https://github.com/KrishMistry18)
-- 💼 [linkedin.com/in/krish-mistry-0290522b7](https://www.linkedin.com/in/krish-mistry-0290522b7/)
+</div>
